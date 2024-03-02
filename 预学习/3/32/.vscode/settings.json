@@ -1,0 +1,16 @@
+{
+    "files.associations": {
+        "cstdlib": "cpp",
+        "list.h": "c",
+        "dbg.h": "c",
+        "errno.h": "c",
+        "error.h": "c",
+        "cerrno": "c",
+        "minunit.h": "c",
+        "stdio.h": "c",
+        "assert.h": "c",
+        "string.h": "c",
+        "bitset": "c",
+        "stdlib.h": "c"
+    }
+}

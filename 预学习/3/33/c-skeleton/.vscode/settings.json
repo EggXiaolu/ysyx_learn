@@ -1,0 +1,27 @@
+{
+    "files.associations": {
+        "list.h": "c",
+        "dbg.h": "c",
+        "list_algos.h": "c",
+        "chrono": "c",
+        "span": "c",
+        "type_traits": "c",
+        "any": "c",
+        "*.tcc": "c",
+        "charconv": "c",
+        "compare": "c",
+        "optional": "c",
+        "algorithm": "c",
+        "format": "c",
+        "limits": "c",
+        "numeric": "c",
+        "ostream": "c",
+        "streambuf": "c",
+        "system_error": "c",
+        "tuple": "c",
+        "valarray": "c",
+        "*.inc": "c",
+        "*.rh": "c",
+        "time.h": "c"
+    }
+}

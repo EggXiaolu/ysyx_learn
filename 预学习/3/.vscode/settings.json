@@ -1,0 +1,14 @@
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "files.associations": {
+    "assert.h": "c",
+    "stdlib.h": "c",
+    "numbers": "c",
+    "compare": "c",
+    "chrono": "cpp",
+    "typeinfo": "cpp",
+    "bitset": "cpp"
+  }
+}
