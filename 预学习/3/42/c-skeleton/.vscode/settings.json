@@ -22,6 +22,7 @@
         "valarray": "c",
         "*.inc": "c",
         "*.rh": "c",
-        "time.h": "c"
+        "time.h": "c",
+        "queue.h": "c"
     }
 }

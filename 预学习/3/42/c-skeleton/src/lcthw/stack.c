@@ -6,7 +6,6 @@ Stack *Stack_create(){
 }
 
 void destroy_node(StackNode *node){
-    printf("%s\n", node->value);
     if(node->next){
         destroy_node(node->next);
     }
