@@ -89,7 +89,7 @@ char *test_shift()
     mu_assert(val == test3, "Wrong value on shift.");
 
     val = List_shift(list);
-    mu_assert(val == test1, "Wrong value on shift.");
+    mu_assert(val == test1, "Wrong value on 11shift.");
     mu_assert(List_count(list) == 0, "Wrong count after shift.");
 
     return NULL;
