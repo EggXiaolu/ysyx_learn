@@ -1,0 +1,27 @@
+3月 02 20:41:17 xiaolu-computer systemd[1113]: Startup finished in 184ms.
+3月 02 20:41:20 xiaolu-computer systemd[1]: Startup finished in 7.242s (firmware) + 4.628s (loader) + 2.021s (kernel) + 9.717s (userspace) = 23.608s.
+3月 02 20:41:43 xiaolu-computer systemd[1640]: Startup finished in 185ms.
+2月 28 19:05:46 xiaolu-computer systemd[1089]: Startup finished in 200ms.
+2月 28 19:05:56 xiaolu-computer systemd[1663]: Startup finished in 156ms.
+2月 28 19:06:49 xiaolu-computer systemd[1]: Startup finished in 5.247s (firmware) + 5.261s (loader) + 1.303s (kernel) + 1min 10.226s (userspace) = 1min 22.039s.
+2月 27 19:49:52 xiaolu-computer systemd[1066]: Startup finished in 221ms.
+2月 27 19:49:56 xiaolu-computer systemd[1]: Startup finished in 7.088s (firmware) + 2.486s (loader) + 1.213s (kernel) + 10.246s (userspace) = 21.036s.
+2月 27 19:49:57 xiaolu-computer systemd[1565]: Startup finished in 189ms.
+2月 23 12:37:21 xiaolu-computer systemd[1060]: Startup finished in 176ms.
+2月 23 12:37:25 xiaolu-computer systemd[1]: Startup finished in 7.073s (firmware) + 4.514s (loader) + 1.195s (kernel) + 10.304s (userspace) = 23.087s.
+2月 23 12:37:30 xiaolu-computer systemd[1561]: Startup finished in 184ms.
+2月 20 20:58:03 xiaolu-computer systemd[1028]: Startup finished in 178ms.
+2月 20 20:58:07 xiaolu-computer systemd[1]: Startup finished in 7.063s (firmware) + 5.419s (loader) + 1.095s (kernel) + 10.000s (userspace) = 23.578s.
+2月 20 20:58:51 xiaolu-computer systemd[1554]: Startup finished in 185ms.
+2月 09 11:43:54 xiaolu-computer systemd[1066]: Startup finished in 166ms.
+2月 09 11:43:58 xiaolu-computer systemd[1]: Startup finished in 7.158s (firmware) + 2.254s (loader) + 1.197s (kernel) + 9.793s (userspace) = 20.404s.
+2月 09 11:43:58 xiaolu-computer systemd[1503]: Startup finished in 148ms.
+2月 06 19:27:36 xiaolu-computer systemd[1014]: Startup finished in 178ms.
+2月 06 19:27:39 xiaolu-computer systemd[1]: Startup finished in 7.092s (firmware) + 2.327s (loader) + 1.105s (kernel) + 9.630s (userspace) = 20.154s.
+2月 06 19:27:40 xiaolu-computer systemd[1510]: Startup finished in 207ms.
+2月 04 08:05:25 xiaolu-computer systemd[1069]: Startup finished in 181ms.
+2月 04 08:05:27 xiaolu-computer systemd[1]: Startup finished in 8.628s (firmware) + 4.630s (loader) + 1.216s (kernel) + 9.740s (userspace) = 24.214s.
+2月 04 08:05:32 xiaolu-computer systemd[1561]: Startup finished in 203ms.
+1月 31 10:14:27 xiaolu-computer systemd[1005]: Startup finished in 205ms.
+1月 31 10:14:30 xiaolu-computer systemd[1]: Startup finished in 5.064s (firmware) + 4.428s (loader) + 1.111s (kernel) + 9.675s (userspace) = 20.279s.
+1月 31 10:14:38 xiaolu-computer systemd[1511]: Startup finished in 203ms.

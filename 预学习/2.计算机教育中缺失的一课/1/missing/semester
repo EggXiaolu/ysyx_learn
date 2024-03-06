@@ -1,0 +1,3 @@
+#! /bin/sh
+
+echo curl --head --silent https://missing.csail.mit.edu | sudo tee last-modified.txt
