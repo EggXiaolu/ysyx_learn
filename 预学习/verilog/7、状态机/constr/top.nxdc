@@ -1,0 +1,5 @@
+top=FSM_bin
+
+in (SW1)
+reset (SW2)
+out (LD0)

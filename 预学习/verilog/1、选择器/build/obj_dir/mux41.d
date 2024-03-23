@@ -1,5 +1,5 @@
 mux41.o: \
- /home/xiaolu/文档/大学/ysyx/预学习/verilog/1.选择器/csrc/mux41.cpp \
+ /home/xiaolu/文档/大学/ysyx/预学习/verilog/1、选择器/csrc/mux41.cpp \
  Vmux41.h /usr/local/share/verilator/include/verilated.h \
  /usr/local/share/verilator/include/verilatedos.h \
  /usr/local/share/verilator/include/verilated_config.h \

@@ -38,13 +38,7 @@ void sim_exit() {
 int main() {
     sim_init();
     while (1) {
-        for (int i = 0; i < 0b11111111; i++) {
-            top->a = i;
-            for (int j = 0; j < 0b11; j++) {
-                top->s = j;
-                step_and_dump_wave();
-            }
-        }
+        step_and_dump_wave();
     }
 
     sim_exit();
