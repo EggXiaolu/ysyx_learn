@@ -1,13 +1,12 @@
 #undef FUNCNAME
 #include <assert.h>
+#include <lcthw/dbg.h>
+#include <lcthw/ringbuffer.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <lcthw/dbg.h>
-#include <lcthw/ringbuffer.h>
 
-RingBuffer *RingBuffer_create(int length)
-{
+RingBuffer *RingBuffer_create(int length) {
     RingBuffer *buffer = calloc(1, sizeof(RingBuffer));
     buffer->length = length + 1;
     buffer->start = 0;
@@ -16,23 +15,21 @@ RingBuffer *RingBuffer_create(int length)
     return buffer;
 }
 
-void RingBuffer_destroy(RingBuffer *buffer)
-{
-    if (buffer)
-    {
+void RingBuffer_destroy(RingBuffer *buffer) {
+    if (buffer) {
         free(buffer->buffer);
         free(buffer);
     }
 }
 
-int RingBuffer_write(RingBuffer *buffer, char *data, int length)
-{
-    if (RingBuffer_available_data(buffer) == 0)
-    {
-        // 循环缓冲区为空
+int RingBuffer_write(RingBuffer *buffer, char *data, int length) {
+    if (RingBuffer_available_data(buffer) == 0) {
+        // 循环缓冲区置空
         buffer->start = buffer->end = 0;
     }
-    check(length <= RingBuffer_available_space(buffer), "Not enough space: %d request,%d available", RingBuffer_available_data(buffer), length);
+    check(length <= RingBuffer_available_space(buffer),
+          "Not enough space: %d request,%d available",
+          RingBuffer_available_data(buffer), length);
 
     void *result = memcpy(RingBuffer_ends_at(buffer), data, length);
     check(result != NULL, "Failed to write data into buffer.");
@@ -43,17 +40,17 @@ error:
     return -1;
 }
 
-int RingBuffer_read(RingBuffer *buffer, char *target, int amount)
-{
-    check_debug(amount <= RingBuffer_available_data(buffer), "Not enough space: %d request,%d available", RingBuffer_available_data(buffer), amount);
+int RingBuffer_read(RingBuffer *buffer, char *target, int amount) {
+    check_debug(amount <= RingBuffer_available_data(buffer),
+                "Not enough space: %d request,%d available",
+                RingBuffer_available_data(buffer), amount);
 
     void *result = memcpy(target, RingBuffer_start_at(buffer), amount);
     check(result != NULL, "Failed to write data into buffer.");
 
     RingBuffer_commit_read(buffer, amount);
 
-    if (buffer->end == buffer->start)
-    {
+    if (buffer->end == buffer->start) {
         buffer->start = buffer->end = 0;
     }
 
@@ -62,10 +59,10 @@ error:
     return -1;
 }
 
-bstring RingBuffer_gets(RingBuffer *buffer, int amount)
-{
+bstring RingBuffer_gets(RingBuffer *buffer, int amount) {
     check(amount > 0, "Need more than 0 for gets, you gave: %d", amount);
-    check_debug(amount <= RingBuffer_available_data(buffer), "Not enough in th buffer.");
+    check_debug(amount <= RingBuffer_available_data(buffer),
+                "Not enough in th buffer.");
 
     bstring result = blk2bstr(RingBuffer_start_at(buffer), amount);
     check(result != NULL, "Fail to create gets result.");

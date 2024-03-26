@@ -1,33 +1,27 @@
 #include "minunit.h"
-#include <lcthw/list.h>
 #include <assert.h>
+#include <lcthw/list.h>
 
 static List *list = NULL;
+static List *copy = NULL;
 char *test1 = "test1 data";
 char *test2 = "test2 data";
-char *test3 = "test3 data"; 
+char *test3 = "test3 data";
 
-
-char *test_create()
-{
+char *test_create() {
     list = List_create();
     mu_assert(list != NULL, "Failed to create list.");
 
     return NULL;
 }
 
-
-char *test_destroy()
-{
+char *test_destroy() {
     List_clear_destroy(list);
 
     return NULL;
-
 }
 
-
-char *test_push_pop()
-{
+char *test_push_pop() {
     List_push(list, test1);
     mu_assert(List_last(list) == test1, "Wrong last value.");
 
@@ -51,8 +45,7 @@ char *test_push_pop()
     return NULL;
 }
 
-char *test_unshift()
-{
+char *test_unshift() {
     List_unshift(list, test1);
     mu_assert(List_first(list) == test1, "Wrong first value.");
 
@@ -66,8 +59,7 @@ char *test_unshift()
     return NULL;
 }
 
-char *test_remove()
-{
+char *test_remove() {
     // we only need to test the middle remove case since push/shift
     // already tests the other cases
 
@@ -80,9 +72,7 @@ char *test_remove()
     return NULL;
 }
 
-
-char *test_shift()
-{
+char *test_shift() {
     mu_assert(List_count(list) != 0, "Wrong count before shift.");
 
     char *val = List_shift(list);
@@ -95,7 +85,21 @@ char *test_shift()
     return NULL;
 }
 
+char *test_copy() {
+    copy = List_copy(list);
+    mu_assert(List_count(copy) == 3, "Wrong count after copy.");
 
+    char *val = List_pop(copy);
+    mu_assert(val == test1, "Wrong value on copy.");
+
+    val = List_pop(copy);
+    mu_assert(val == test2, "Wrong value on copy.");
+
+    val = List_pop(copy);
+    mu_assert(val == test3, "Wrong value on copy.");
+
+    return NULL;
+}
 
 char *all_tests() {
     mu_suite_start();
@@ -103,6 +107,7 @@ char *all_tests() {
     mu_run_test(test_create);
     mu_run_test(test_push_pop);
     mu_run_test(test_unshift);
+    mu_run_test(test_copy);
     mu_run_test(test_remove);
     mu_run_test(test_shift);
     mu_run_test(test_destroy);

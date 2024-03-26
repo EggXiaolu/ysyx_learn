@@ -11,12 +11,11 @@ static VFSM_bin *top;
 void nvboard_bind_all_pins(VFSM_bin *top);
 
 void step_and_dump_wave() {
-    sleep(1);
+
     top->clk = 0;
     top->eval();
     nvboard_update();
 
-    sleep(1);
     top->clk = 1;
     top->eval();
     contextp->timeInc(1);
@@ -31,7 +30,7 @@ void sim_init() {
     top = new VFSM_bin;
     contextp->traceEverOn(true);
     top->trace(tfp, 0);
-    // tfp->open("FSM_bin.vcd");
+    tfp->open("FSM_bin.vcd");
 
     nvboard_bind_all_pins(top);
     nvboard_init();
@@ -40,7 +39,7 @@ void sim_init() {
 void sim_exit() {
     step_and_dump_wave();
     nvboard_quit();
-    // tfp->close();
+    tfp->close();
 }
 
 int main() {
