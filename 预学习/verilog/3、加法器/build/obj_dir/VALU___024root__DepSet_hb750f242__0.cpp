@@ -6,21 +6,41 @@
 
 #include "VALU___024root.h"
 
-extern const VlUnpacked<CData/*7:0*/, 8> VALU__ConstPool__TABLE_h171c8c8f_0;
+extern const VlUnpacked<CData/*7:0*/, 16> VALU__ConstPool__TABLE_h06df57dd_0;
 
 VL_INLINE_OPT void VALU___024root___ico_sequent__TOP__0(VALU___024root* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
     VALU__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     VL_DEBUG_IF(VL_DBG_MSGF("+    VALU___024root___ico_sequent__TOP__0\n"); );
     // Init
-    CData/*2:0*/ __Vtableidx1;
+    CData/*3:0*/ __Vtableidx1;
     __Vtableidx1 = 0;
     // Body
-    vlSelf->ALU__DOT__a_add_b = (0xfU & ((IData)(vlSelf->a) 
-                                         + (IData)(vlSelf->b)));
     vlSelf->ALU__DOT__a_sub_b = (0xfU & ((IData)(1U) 
                                          + ((IData)(vlSelf->a) 
                                             + (~ (IData)(vlSelf->b)))));
+    vlSelf->ALU__DOT__my_adder__DOT__sub_b = (0xfU 
+                                              & ((IData)(vlSelf->b) 
+                                                 ^ 
+                                                 (- (IData)(
+                                                            (1U 
+                                                             & (IData)(vlSelf->op))))));
+    vlSelf->carry = (1U & (((IData)(vlSelf->a) + ((IData)(vlSelf->ALU__DOT__my_adder__DOT__sub_b) 
+                                                  + 
+                                                  (1U 
+                                                   & (IData)(vlSelf->op)))) 
+                           >> 4U));
+    vlSelf->ALU__DOT__y_tmp = (0xfU & ((IData)(vlSelf->a) 
+                                       + ((IData)(vlSelf->ALU__DOT__my_adder__DOT__sub_b) 
+                                          + (1U & (IData)(vlSelf->op)))));
+    vlSelf->zero = (0U == (IData)(vlSelf->ALU__DOT__y_tmp));
+    vlSelf->overflow = (((1U & ((IData)(vlSelf->a) 
+                                >> 3U)) == (1U & ((IData)(vlSelf->ALU__DOT__my_adder__DOT__sub_b) 
+                                                  >> 3U))) 
+                        & ((1U & ((IData)(vlSelf->ALU__DOT__y_tmp) 
+                                  >> 3U)) != (1U & 
+                                              ((IData)(vlSelf->a) 
+                                               >> 3U))));
     vlSelf->ALU__DOT__y = (0xfU & ((4U & (IData)(vlSelf->op))
                                     ? ((2U & (IData)(vlSelf->op))
                                         ? ((1U & (IData)(vlSelf->op))
@@ -42,21 +62,15 @@ VL_INLINE_OPT void VALU___024root___ico_sequent__TOP__0(VALU___024root* vlSelf) 
                                             ? ((IData)(vlSelf->a) 
                                                & (IData)(vlSelf->b))
                                             : (~ (IData)(vlSelf->a)))
-                                        : ((1U & (IData)(vlSelf->op))
-                                            ? (IData)(vlSelf->ALU__DOT__a_sub_b)
-                                            : (IData)(vlSelf->ALU__DOT__a_add_b)))));
+                                        : (IData)(vlSelf->ALU__DOT__y_tmp))));
     if ((8U & (IData)(vlSelf->ALU__DOT__y))) {
         vlSelf->seg2 = 0xfdU;
     } else if ((1U & (~ ((IData)(vlSelf->ALU__DOT__y) 
                          >> 3U)))) {
         vlSelf->seg2 = 0U;
     }
-    __Vtableidx1 = (7U & ((IData)(vlSelf->ALU__DOT__y) 
-                          ^ ((- (IData)((1U & ((IData)(vlSelf->ALU__DOT__y) 
-                                               >> 3U)))) 
-                             + (1U & ((IData)(vlSelf->ALU__DOT__y) 
-                                      >> 3U)))));
-    vlSelf->seg1 = VALU__ConstPool__TABLE_h171c8c8f_0
+    __Vtableidx1 = vlSelf->ALU__DOT__y;
+    vlSelf->seg1 = VALU__ConstPool__TABLE_h06df57dd_0
         [__Vtableidx1];
 }
 

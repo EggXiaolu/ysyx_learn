@@ -139,8 +139,9 @@ VL_ATTR_COLD void VALU___024root___ctor_var_reset(VALU___024root* vlSelf) {
     vlSelf->carry = 0;
     vlSelf->zero = 0;
     vlSelf->ALU__DOT__y = 0;
-    vlSelf->ALU__DOT__a_add_b = 0;
+    vlSelf->ALU__DOT__y_tmp = 0;
     vlSelf->ALU__DOT__a_sub_b = 0;
+    vlSelf->ALU__DOT__my_adder__DOT__sub_b = 0;
     for (int __Vi0 = 0; __Vi0 < 2; ++__Vi0) {
         vlSelf->__Vm_traceActivity[__Vi0] = 0;
     }

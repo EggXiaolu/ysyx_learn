@@ -4,7 +4,7 @@
 # Execute this makefile from the object directory:
 #    make -f Vrandom.mk
 
-default: /home/xiaolu/文档/大学/ysyx/预学习/verilog/6.移位寄存器/build/random
+default: /home/xiaolu/文档/大学/ysyx/预学习/verilog/6、移位寄存器/build/random
 
 ### Constants...
 # Perl executable (from $PERL)
@@ -39,12 +39,12 @@ VM_USER_CFLAGS = \
 	-O3 \
 	-I/usr/include/SDL2 \
 	-D_REENTRANT \
-	-I/home/xiaolu/文档/大学/ysyx/预学习/ysyx-workbench/nvboard/usr/include \
+	-I/home/xiaolu/文档/大学/ysyx/ysyx-workbench/nvboard/usr/include \
 	-DTOP_NAME="Vrandom" \
 
 # User LDLIBS (from -LDFLAGS on Verilator command line)
 VM_USER_LDLIBS = \
-	/home/xiaolu/文档/大学/ysyx/预学习/ysyx-workbench/nvboard/build/nvboard.a \
+	/home/xiaolu/文档/大学/ysyx/ysyx-workbench/nvboard/build/nvboard.a \
 	-L/usr/lib \
 	-lSDL2 \
 	-lSDL2_image \
@@ -57,8 +57,8 @@ VM_USER_CLASSES = \
 
 # User .cpp directories (from .cpp's on Verilator command line)
 VM_USER_DIR = \
-	/home/xiaolu/文档/大学/ysyx/预学习/verilog/6.移位寄存器/build \
-	/home/xiaolu/文档/大学/ysyx/预学习/verilog/6.移位寄存器/csrc \
+	/home/xiaolu/文档/大学/ysyx/预学习/verilog/6、移位寄存器/build \
+	/home/xiaolu/文档/大学/ysyx/预学习/verilog/6、移位寄存器/csrc \
 
 
 ### Default rules...
@@ -70,13 +70,13 @@ include $(VERILATOR_ROOT)/include/verilated.mk
 ### Executable rules... (from --exe)
 VPATH += $(VM_USER_DIR)
 
-auto_bind.o: /home/xiaolu/文档/大学/ysyx/预学习/verilog/6.移位寄存器/build/auto_bind.cpp
+auto_bind.o: /home/xiaolu/文档/大学/ysyx/预学习/verilog/6、移位寄存器/build/auto_bind.cpp
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
-random.o: /home/xiaolu/文档/大学/ysyx/预学习/verilog/6.移位寄存器/csrc/random.cpp
+random.o: /home/xiaolu/文档/大学/ysyx/预学习/verilog/6、移位寄存器/csrc/random.cpp
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
 
 ### Link rules... (from --exe)
-/home/xiaolu/文档/大学/ysyx/预学习/verilog/6.移位寄存器/build/random: $(VK_USER_OBJS) $(VK_GLOBAL_OBJS) $(VM_PREFIX)__ALL.a $(VM_HIER_LIBS)
+/home/xiaolu/文档/大学/ysyx/预学习/verilog/6、移位寄存器/build/random: $(VK_USER_OBJS) $(VK_GLOBAL_OBJS) $(VM_PREFIX)__ALL.a $(VM_HIER_LIBS)
 	$(LINK) $(LDFLAGS) $^ $(LOADLIBES) $(LDLIBS) $(LIBS) $(SC_LIBS) -o $@
 
 

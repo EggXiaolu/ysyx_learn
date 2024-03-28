@@ -42,6 +42,7 @@ module top (
         b:next_state=(tmp_data==8'hf0)?c:b;
         c:next_state=(tmp_data!=8'hf0)?d:c;
         d:next_state=(tmp_data!=8'hf0)?b:d;
+        default:next_state=a;
       endcase
       out_data=tmp_data;
     end
@@ -82,6 +83,16 @@ module ps2_to_ascii (input [7:0]x, output [7:0]y);
     8'h35:tmp=8'h79;
     8'h1a:tmp=8'h7a;
     8'hf0:tmp=0;
+    8'h45:tmp=8'h30;
+    8'h16:tmp=8'h31;
+    8'h1e:tmp=8'h32;
+    8'h26:tmp=8'h33;
+    8'h25:tmp=8'h34;
+    8'h2e:tmp=8'h35;
+    8'h36:tmp=8'h36;
+    8'h3d:tmp=8'h37;
+    8'h3e:tmp=8'h38;
+    8'h46:tmp=8'h39;
     default:tmp=0;
     endcase
   end

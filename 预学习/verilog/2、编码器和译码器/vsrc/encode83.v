@@ -28,6 +28,7 @@ module bcd7seg(input [2:0]b, output reg [7:0]h);
     5:h = ~(8'b10110110);
     6:h = ~(8'b10111110);
     7:h = ~(8'b11100000);
+    default:h = ~(8'b00000000);
     endcase 
   end
 endmodule

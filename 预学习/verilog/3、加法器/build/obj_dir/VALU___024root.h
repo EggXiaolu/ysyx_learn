@@ -22,8 +22,9 @@ class VALU___024root final : public VerilatedModule {
     VL_OUT8(carry,0,0);
     VL_OUT8(zero,0,0);
     CData/*3:0*/ ALU__DOT__y;
-    CData/*3:0*/ ALU__DOT__a_add_b;
+    CData/*3:0*/ ALU__DOT__y_tmp;
     CData/*3:0*/ ALU__DOT__a_sub_b;
+    CData/*3:0*/ ALU__DOT__my_adder__DOT__sub_b;
     CData/*0:0*/ __VactContinue;
     IData/*31:0*/ __VstlIterCount;
     IData/*31:0*/ __VicoIterCount;

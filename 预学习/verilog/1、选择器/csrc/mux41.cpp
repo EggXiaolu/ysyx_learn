@@ -23,7 +23,7 @@ void sim_init() {
     top = new Vmux41;
     contextp->traceEverOn(true);
     top->trace(tfp, 0);
-    tfp->open("mux41.vcd");
+    // tfp->open("mux41.vcd");
 
     nvboard_bind_all_pins(top);
     nvboard_init();
@@ -32,7 +32,7 @@ void sim_init() {
 void sim_exit() {
     step_and_dump_wave();
     nvboard_quit();
-    tfp->close();
+    // tfp->close();
 }
 
 int main() {

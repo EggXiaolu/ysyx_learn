@@ -88,7 +88,7 @@ VL_ATTR_COLD void Vtop___024root___dump_triggers__stl(Vtop___024root* vlSelf) {
 #endif  // VL_DEBUG
 
 extern const VlUnpacked<CData/*7:0*/, 16> Vtop__ConstPool__TABLE_h1f93ebb4_0;
-extern const VlUnpacked<CData/*7:0*/, 256> Vtop__ConstPool__TABLE_h7744b215_0;
+extern const VlUnpacked<CData/*7:0*/, 256> Vtop__ConstPool__TABLE_h181586bb_0;
 
 VL_ATTR_COLD void Vtop___024root___stl_sequent__TOP__0(Vtop___024root* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
@@ -120,21 +120,31 @@ VL_ATTR_COLD void Vtop___024root___stl_sequent__TOP__0(Vtop___024root* vlSelf) {
     vlSelf->top__DOT__tmp_data = vlSelf->top__DOT__my_keyboard__DOT__fifo
         [vlSelf->top__DOT__my_keyboard__DOT__r_ptr];
     if (vlSelf->top__DOT__ready) {
-        if ((0U == (IData)(vlSelf->top__DOT__state))) {
-            vlSelf->top__DOT__next_state = 1U;
-        } else if ((1U == (IData)(vlSelf->top__DOT__state))) {
-            vlSelf->top__DOT__next_state = ((0xf0U 
-                                             == (IData)(vlSelf->top__DOT__tmp_data))
-                                             ? 2U : 1U);
-        } else if ((2U == (IData)(vlSelf->top__DOT__state))) {
-            vlSelf->top__DOT__next_state = ((0xf0U 
-                                             != (IData)(vlSelf->top__DOT__tmp_data))
-                                             ? 4U : 2U);
-        } else if ((4U == (IData)(vlSelf->top__DOT__state))) {
-            vlSelf->top__DOT__next_state = ((0xf0U 
-                                             != (IData)(vlSelf->top__DOT__tmp_data))
-                                             ? 1U : 4U);
-        }
+        vlSelf->top__DOT__next_state = ((0U == (IData)(vlSelf->top__DOT__state))
+                                         ? 1U : ((1U 
+                                                  == (IData)(vlSelf->top__DOT__state))
+                                                  ? 
+                                                 ((0xf0U 
+                                                   == (IData)(vlSelf->top__DOT__tmp_data))
+                                                   ? 2U
+                                                   : 1U)
+                                                  : 
+                                                 ((2U 
+                                                   == (IData)(vlSelf->top__DOT__state))
+                                                   ? 
+                                                  ((0xf0U 
+                                                    != (IData)(vlSelf->top__DOT__tmp_data))
+                                                    ? 4U
+                                                    : 2U)
+                                                   : 
+                                                  ((4U 
+                                                    == (IData)(vlSelf->top__DOT__state))
+                                                    ? 
+                                                   ((0xf0U 
+                                                     != (IData)(vlSelf->top__DOT__tmp_data))
+                                                     ? 1U
+                                                     : 4U)
+                                                    : 0U))));
         vlSelf->top__DOT__out_data = vlSelf->top__DOT__tmp_data;
     }
     if ((1U == (IData)(vlSelf->top__DOT__state))) {
@@ -151,7 +161,7 @@ VL_ATTR_COLD void Vtop___024root___stl_sequent__TOP__0(Vtop___024root* vlSelf) {
         [__Vtableidx2];
     vlSelf->seg1 = Vtop__ConstPool__TABLE_h1f93ebb4_0
         [__Vtableidx3];
-    vlSelf->top__DOT__my_ps2_to_ascii__DOT__tmp = Vtop__ConstPool__TABLE_h7744b215_0
+    vlSelf->top__DOT__my_ps2_to_ascii__DOT__tmp = Vtop__ConstPool__TABLE_h181586bb_0
         [__Vtableidx1];
     __Vtableidx4 = (0xfU & (IData)(vlSelf->top__DOT__my_ps2_to_ascii__DOT__tmp));
     vlSelf->seg2 = Vtop__ConstPool__TABLE_h1f93ebb4_0

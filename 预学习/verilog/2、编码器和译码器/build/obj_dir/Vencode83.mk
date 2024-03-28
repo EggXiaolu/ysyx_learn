@@ -39,12 +39,12 @@ VM_USER_CFLAGS = \
 	-O3 \
 	-I/usr/include/SDL2 \
 	-D_REENTRANT \
-	-I/home/xiaolu/文档/大学/ysyx/预学习/ysyx-workbench/nvboard/usr/include \
+	-I/home/xiaolu/文档/大学/ysyx/ysyx-workbench/nvboard/usr/include \
 	-DTOP_NAME="Vencode83" \
 
 # User LDLIBS (from -LDFLAGS on Verilator command line)
 VM_USER_LDLIBS = \
-	/home/xiaolu/文档/大学/ysyx/预学习/ysyx-workbench/nvboard/build/nvboard.a \
+	/home/xiaolu/文档/大学/ysyx/ysyx-workbench/nvboard/build/nvboard.a \
 	-L/usr/lib \
 	-lSDL2 \
 	-lSDL2_image \

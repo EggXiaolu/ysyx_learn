@@ -25,37 +25,23 @@ void VALU___024root__trace_chg_sub_0(VALU___024root* vlSelf, VerilatedVcd::Buffe
     // Body
     if (VL_UNLIKELY(vlSelf->__Vm_traceActivity[1U])) {
         bufp->chgCData(oldp+0,(vlSelf->ALU__DOT__y),4);
-        bufp->chgCData(oldp+1,(vlSelf->ALU__DOT__a_add_b),4);
+        bufp->chgCData(oldp+1,(vlSelf->ALU__DOT__y_tmp),4);
         bufp->chgCData(oldp+2,(vlSelf->ALU__DOT__a_sub_b),4);
-        bufp->chgBit(oldp+3,((0U == (IData)(vlSelf->ALU__DOT__a_add_b))));
-        bufp->chgBit(oldp+4,((0U == (IData)(vlSelf->ALU__DOT__a_sub_b))));
-        bufp->chgCData(oldp+5,((7U & ((IData)(vlSelf->ALU__DOT__y) 
-                                      ^ ((- (IData)(
-                                                    (1U 
-                                                     & ((IData)(vlSelf->ALU__DOT__y) 
-                                                        >> 3U)))) 
-                                         + (1U & ((IData)(vlSelf->ALU__DOT__y) 
-                                                  >> 3U)))))),3);
-        bufp->chgBit(oldp+6,((1U & ((IData)(vlSelf->ALU__DOT__y) 
+        bufp->chgBit(oldp+3,((0U == (IData)(vlSelf->ALU__DOT__a_sub_b))));
+        bufp->chgCData(oldp+4,(vlSelf->ALU__DOT__my_adder__DOT__sub_b),4);
+        bufp->chgBit(oldp+5,((1U & ((IData)(vlSelf->ALU__DOT__y) 
                                     >> 3U))));
     }
-    bufp->chgCData(oldp+7,(vlSelf->op),3);
-    bufp->chgCData(oldp+8,(vlSelf->a),4);
-    bufp->chgCData(oldp+9,(vlSelf->b),4);
-    bufp->chgCData(oldp+10,(vlSelf->seg1),8);
-    bufp->chgCData(oldp+11,(vlSelf->seg2),8);
-    bufp->chgBit(oldp+12,(vlSelf->overflow));
-    bufp->chgBit(oldp+13,(vlSelf->carry));
-    bufp->chgBit(oldp+14,(vlSelf->zero));
+    bufp->chgCData(oldp+6,(vlSelf->op),3);
+    bufp->chgCData(oldp+7,(vlSelf->a),4);
+    bufp->chgCData(oldp+8,(vlSelf->b),4);
+    bufp->chgCData(oldp+9,(vlSelf->seg1),8);
+    bufp->chgCData(oldp+10,(vlSelf->seg2),8);
+    bufp->chgBit(oldp+11,(vlSelf->overflow));
+    bufp->chgBit(oldp+12,(vlSelf->carry));
+    bufp->chgBit(oldp+13,(vlSelf->zero));
+    bufp->chgBit(oldp+14,((1U & (IData)(vlSelf->op))));
     bufp->chgBit(oldp+15,((((1U & ((IData)(vlSelf->a) 
-                                   >> 3U)) == (1U & 
-                                               ((IData)(vlSelf->b) 
-                                                >> 3U))) 
-                           & ((1U & ((IData)(vlSelf->ALU__DOT__a_add_b) 
-                                     >> 3U)) != (1U 
-                                                 & ((IData)(vlSelf->a) 
-                                                    >> 3U))))));
-    bufp->chgBit(oldp+16,((((1U & ((IData)(vlSelf->a) 
                                    >> 3U)) == (1U & 
                                                (~ ((IData)(vlSelf->b) 
                                                    >> 3U)))) 
@@ -63,15 +49,13 @@ void VALU___024root__trace_chg_sub_0(VALU___024root* vlSelf, VerilatedVcd::Buffe
                                      >> 3U)) != (1U 
                                                  & ((IData)(vlSelf->a) 
                                                     >> 3U))))));
-    bufp->chgBit(oldp+17,((1U & (((IData)(vlSelf->a) 
-                                  + (IData)(vlSelf->b)) 
-                                 >> 4U))));
-    bufp->chgBit(oldp+18,((1U & (((IData)(1U) + ((IData)(vlSelf->a) 
+    bufp->chgBit(oldp+16,((1U & (((IData)(1U) + ((IData)(vlSelf->a) 
                                                  + 
                                                  (0xfU 
                                                   & (~ (IData)(vlSelf->b))))) 
                                  >> 4U))));
-    bufp->chgCData(oldp+19,((0xfU & (~ (IData)(vlSelf->b)))),4);
+    bufp->chgBit(oldp+17,((1U & (IData)(vlSelf->op))));
+    bufp->chgCData(oldp+18,((0xfU & (~ (IData)(vlSelf->b)))),4);
 }
 
 void VALU___024root__trace_cleanup(void* voidSelf, VerilatedVcd* /*unused*/) {

@@ -39,13 +39,7 @@ void sim_exit() {
 int main() {
     sim_init();
     while (1) {
-        top->ctrl = 0;
-        sleep(1);
         step_and_dump_wave();
-        top->ctrl = 1;
-        sleep(1);
-        step_and_dump_wave();
-        printf("0x%x  0x%x\n", top->seg_1, top->seg_2);
     }
     sim_exit();
 }
