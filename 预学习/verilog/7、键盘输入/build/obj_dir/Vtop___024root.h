@@ -23,12 +23,18 @@ class Vtop___024root final : public VerilatedModule {
     VL_OUT8(seg3,7,0);
     VL_OUT8(seg4,7,0);
     VL_OUT8(seg5,7,0);
+    VL_OUT8(seg6,7,0);
+    VL_OUT8(seg7,7,0);
     CData/*0:0*/ top__DOT__nextdata_n;
     CData/*0:0*/ top__DOT__ready;
     CData/*0:0*/ top__DOT__overflow;
     CData/*7:0*/ top__DOT__tmp_data;
     CData/*7:0*/ top__DOT__out_data;
     CData/*7:0*/ top__DOT__key_count;
+    CData/*7:0*/ top__DOT__tmp_seg0;
+    CData/*7:0*/ top__DOT__tmp_seg1;
+    CData/*7:0*/ top__DOT__tmp_seg2;
+    CData/*7:0*/ top__DOT__tmp_seg3;
     CData/*3:0*/ top__DOT__state;
     CData/*3:0*/ top__DOT__next_state;
     CData/*2:0*/ top__DOT__my_keyboard__DOT__w_ptr;
@@ -45,7 +51,7 @@ class Vtop___024root final : public VerilatedModule {
     IData/*31:0*/ __VstlIterCount;
     IData/*31:0*/ __VactIterCount;
     VlUnpacked<CData/*7:0*/, 8> top__DOT__my_keyboard__DOT__fifo;
-    VlUnpacked<CData/*0:0*/, 3> __Vm_traceActivity;
+    VlUnpacked<CData/*0:0*/, 4> __Vm_traceActivity;
     VlTriggerVec<1> __VstlTriggered;
     VlTriggerVec<2> __VactTriggered;
     VlTriggerVec<2> __VnbaTriggered;

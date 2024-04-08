@@ -1,6 +1,6 @@
 module top (
   input clk,clrn,ps2_clk,ps2_data,
-  output [7:0] seg0,seg1,seg2,seg3,seg4,seg5
+  output [7:0] seg0,seg1,seg2,seg3,seg4,seg5,seg6=8'hff,seg7=8'hff
 );
   reg nextdata_n;
   reg ready;
@@ -9,6 +9,7 @@ module top (
   reg [7:0] key_count;
   reg [7:0] ascii;
 
+  reg [7:0] tmp_seg0,tmp_seg1,tmp_seg2,tmp_seg3;
   //四个状态
   reg [3:0] a=4'b0000;
   reg [3:0] b=4'b0001;
@@ -20,12 +21,18 @@ module top (
   ps2_keyboard my_keyboard (clk,clrn,ps2_clk,ps2_data,tmp_data,ready,nextdata_n,overflow,key_count);
   ps2_to_ascii my_ps2_to_ascii (data,ascii);
 
-  bcd7seg my_seg1 (data[3:0],seg0);
-  bcd7seg my_seg2 (data[7:4],seg1);
-  bcd7seg my_seg3 (ascii[3:0],seg2);
-  bcd7seg my_seg4 (ascii[7:4],seg3);
+  bcd7seg my_seg1 (data[3:0],tmp_seg0);
+  bcd7seg my_seg2 (data[7:4],tmp_seg1);
+  bcd7seg my_seg3 (ascii[3:0],tmp_seg2);
+  bcd7seg my_seg4 (ascii[7:4],tmp_seg3);
   bcd7seg my_seg5 (key_count[3:0],seg4);
   bcd7seg my_seg6 (key_count[7:4],seg5);
+
+  //触发器更新seg
+  Reg #(8,8'b11111111) my_reg1 (clk,state!=b,tmp_seg0,seg0,state==b); 
+  Reg #(8,8'b11111111) my_reg2 (clk,state!=b,tmp_seg1,seg1,state==b); 
+  Reg #(8,8'b11111111) my_reg3 (clk,state!=b,tmp_seg2,seg2,state==b); 
+  Reg #(8,8'b11111111) my_reg4 (clk,state!=b,tmp_seg3,seg3,state==b); 
 
   //同步转移
   always @(posedge clk or ps2_clk) begin

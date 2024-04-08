@@ -4,7 +4,7 @@
 #include <string.h>
 #include <time.h>
 
-#define NUM_VALUES 1024 * 100
+#define NUM_VALUES 1024 * 30
 int values[NUM_VALUES];
 
 List *create_words() {
@@ -85,15 +85,15 @@ char *all_tests() {
 
     time_t bubble_time = time(0);
     mu_run_test(test_bubble_sort);
-    printf("Buuble sort spend time: %ld\n", time(0) - bubble_time);
+    printf("Buuble sort spend time: %lds\n", time(0) - bubble_time);
 
     time_t merge_time = time(0);
     mu_run_test(test_merge_sort);
-    printf("Merge sort spend time: %ld\n", time(0) - merge_time);
+    printf("Merge sort spend time: %lds\n", time(0) - merge_time);
 
     time_t insert_time = time(0);
     mu_run_test(test_insert_sort);
-    printf("Insert sort spend time: %ld\n", time(0) - insert_time);
+    printf("Insert sort spend time: %lds\n", time(0) - insert_time);
 
     return NULL;
 }

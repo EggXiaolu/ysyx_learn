@@ -51,7 +51,6 @@ static void reset(int n) {
 int main() {
     sim_init();
     // reset(10);
-    top->clrn = 0;
     while (1) {
         step_and_dump_wave();
     }

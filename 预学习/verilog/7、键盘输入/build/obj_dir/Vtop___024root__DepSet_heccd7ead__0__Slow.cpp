@@ -14,6 +14,10 @@ VL_ATTR_COLD void Vtop___024root___eval_static(Vtop___024root* vlSelf) {
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___eval_static\n"); );
     // Body
     Vtop___024root___eval_static__TOP(vlSelf);
+    vlSelf->__Vm_traceActivity[3U] = 1U;
+    vlSelf->__Vm_traceActivity[2U] = 1U;
+    vlSelf->__Vm_traceActivity[1U] = 1U;
+    vlSelf->__Vm_traceActivity[0U] = 1U;
 }
 
 VL_ATTR_COLD void Vtop___024root___eval_static__TOP(Vtop___024root* vlSelf) {
@@ -21,6 +25,8 @@ VL_ATTR_COLD void Vtop___024root___eval_static__TOP(Vtop___024root* vlSelf) {
     Vtop__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vtop___024root___eval_static__TOP\n"); );
     // Body
+    vlSelf->seg6 = 0xffU;
+    vlSelf->seg7 = 0xffU;
     vlSelf->top__DOT__state = 0U;
 }
 
@@ -157,18 +163,18 @@ VL_ATTR_COLD void Vtop___024root___stl_sequent__TOP__0(Vtop___024root* vlSelf) {
         __Vtableidx3 = 0U;
         __Vtableidx1 = 0U;
     }
-    vlSelf->seg0 = Vtop__ConstPool__TABLE_h1f93ebb4_0
+    vlSelf->top__DOT__tmp_seg0 = Vtop__ConstPool__TABLE_h1f93ebb4_0
         [__Vtableidx2];
-    vlSelf->seg1 = Vtop__ConstPool__TABLE_h1f93ebb4_0
+    vlSelf->top__DOT__tmp_seg1 = Vtop__ConstPool__TABLE_h1f93ebb4_0
         [__Vtableidx3];
     vlSelf->top__DOT__my_ps2_to_ascii__DOT__tmp = Vtop__ConstPool__TABLE_h181586bb_0
         [__Vtableidx1];
     __Vtableidx4 = (0xfU & (IData)(vlSelf->top__DOT__my_ps2_to_ascii__DOT__tmp));
-    vlSelf->seg2 = Vtop__ConstPool__TABLE_h1f93ebb4_0
+    vlSelf->top__DOT__tmp_seg2 = Vtop__ConstPool__TABLE_h1f93ebb4_0
         [__Vtableidx4];
     __Vtableidx5 = (0xfU & ((IData)(vlSelf->top__DOT__my_ps2_to_ascii__DOT__tmp) 
                             >> 4U));
-    vlSelf->seg3 = Vtop__ConstPool__TABLE_h1f93ebb4_0
+    vlSelf->top__DOT__tmp_seg3 = Vtop__ConstPool__TABLE_h1f93ebb4_0
         [__Vtableidx5];
 }
 
@@ -179,6 +185,7 @@ VL_ATTR_COLD void Vtop___024root___eval_stl(Vtop___024root* vlSelf) {
     // Body
     if (vlSelf->__VstlTriggered.at(0U)) {
         Vtop___024root___stl_sequent__TOP__0(vlSelf);
+        vlSelf->__Vm_traceActivity[3U] = 1U;
         vlSelf->__Vm_traceActivity[2U] = 1U;
         vlSelf->__Vm_traceActivity[1U] = 1U;
         vlSelf->__Vm_traceActivity[0U] = 1U;
@@ -236,12 +243,18 @@ VL_ATTR_COLD void Vtop___024root___ctor_var_reset(Vtop___024root* vlSelf) {
     vlSelf->seg3 = 0;
     vlSelf->seg4 = 0;
     vlSelf->seg5 = 0;
+    vlSelf->seg6 = 0;
+    vlSelf->seg7 = 0;
     vlSelf->top__DOT__nextdata_n = 0;
     vlSelf->top__DOT__ready = 0;
     vlSelf->top__DOT__overflow = 0;
     vlSelf->top__DOT__tmp_data = 0;
     vlSelf->top__DOT__out_data = 0;
     vlSelf->top__DOT__key_count = 0;
+    vlSelf->top__DOT__tmp_seg0 = 0;
+    vlSelf->top__DOT__tmp_seg1 = 0;
+    vlSelf->top__DOT__tmp_seg2 = 0;
+    vlSelf->top__DOT__tmp_seg3 = 0;
     vlSelf->top__DOT__state = 0;
     vlSelf->top__DOT__next_state = 0;
     vlSelf->top__DOT__my_keyboard__DOT__buffer = 0;
@@ -257,7 +270,7 @@ VL_ATTR_COLD void Vtop___024root___ctor_var_reset(Vtop___024root* vlSelf) {
     vlSelf->__Vtrigrprev__TOP__clk = 0;
     vlSelf->__Vtrigrprev__TOP__ps2_clk = 0;
     vlSelf->__VactDidInit = 0;
-    for (int __Vi0 = 0; __Vi0 < 3; ++__Vi0) {
+    for (int __Vi0 = 0; __Vi0 < 4; ++__Vi0) {
         vlSelf->__Vm_traceActivity[__Vi0] = 0;
     }
 }

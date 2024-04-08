@@ -3,16 +3,16 @@ module ps2_keyboard(clk,clrn,ps2_clk,ps2_data,data,
     input clk,clrn,ps2_clk,ps2_data;
     input nextdata_n;
     output [7:0] data;
-    output reg ready;
-    output reg overflow;     // fifo overflow
-    output reg[7:0]key_count;
+    output reg ready;   // 队列中是否存在元素
+    output reg overflow;     // 队列是否溢出
+    output reg[7:0]key_count; // 键盘计数
     // internal signal, for test
-    reg [9:0] buffer;        // ps2_data bits
-    reg [7:0] fifo[7:0];     // data fifo
-    reg [2:0] w_ptr,r_ptr;   // fifo write and read pointers
-    reg [3:0] count;  // count ps2_data bits
+    reg [9:0] buffer;        // 输入缓冲区
+    reg [7:0] fifo[7:0];     // 数据队列
+    reg [2:0] w_ptr,r_ptr;   // 队列读写指针
+    reg [3:0] count;  // 输入位数总数
     // detect falling edge of ps2_clk
-    reg [2:0] ps2_clk_sync;
+    reg [2:0] ps2_clk_sync; //记录ps2时钟信号
 
     always @(posedge clk) begin
         ps2_clk_sync <=  {ps2_clk_sync[1:0],ps2_clk};
@@ -21,7 +21,6 @@ module ps2_keyboard(clk,clrn,ps2_clk,ps2_data,data,
     wire sampling = ps2_clk_sync[2] & ~ps2_clk_sync[1];
 
     always @(posedge clk) begin
-        // $display("%x", r_ptr);
         if (clrn == 1) begin // reset
             count <= 0; w_ptr <= 0; r_ptr <= 0; overflow <= 0; ready<= 0;key_count<=0;
         end
@@ -36,9 +35,9 @@ module ps2_keyboard(clk,clrn,ps2_clk,ps2_data,data,
             end
             if (sampling) begin
               if (count == 4'd10) begin
-                if ((buffer[0] == 0) &&  // start bit
-                    (ps2_data)       &&  // stop bit
-                    (^buffer[9:1])) begin      // odd  parity
+                if ((buffer[0] == 0) &&  // 开始符
+                    (ps2_data)       &&  // 结束符
+                    (^buffer[9:1])) begin      // 奇偶校验
                     if(buffer[8:1]==8'hf0)  
                         key_count<=key_count+1;
                     

@@ -122,6 +122,17 @@ VL_INLINE_OPT void Vtop___024root___nba_sequent__TOP__0(Vtop___024root* vlSelf) 
             }
         }
     }
+    if ((1U != (IData)(vlSelf->top__DOT__state))) {
+        vlSelf->seg3 = 0xffU;
+        vlSelf->seg2 = 0xffU;
+        vlSelf->seg1 = 0xffU;
+        vlSelf->seg0 = 0xffU;
+    } else if ((1U == (IData)(vlSelf->top__DOT__state))) {
+        vlSelf->seg3 = vlSelf->top__DOT__tmp_seg3;
+        vlSelf->seg2 = vlSelf->top__DOT__tmp_seg2;
+        vlSelf->seg1 = vlSelf->top__DOT__tmp_seg1;
+        vlSelf->seg0 = vlSelf->top__DOT__tmp_seg0;
+    }
     vlSelf->top__DOT__my_keyboard__DOT__count = __Vdly__top__DOT__my_keyboard__DOT__count;
     vlSelf->top__DOT__my_keyboard__DOT__w_ptr = __Vdly__top__DOT__my_keyboard__DOT__w_ptr;
     vlSelf->top__DOT__overflow = __Vdly__top__DOT__overflow;
@@ -212,18 +223,18 @@ VL_INLINE_OPT void Vtop___024root___nba_comb__TOP__0(Vtop___024root* vlSelf) {
         __Vtableidx3 = 0U;
         __Vtableidx1 = 0U;
     }
-    vlSelf->seg0 = Vtop__ConstPool__TABLE_h1f93ebb4_0
+    vlSelf->top__DOT__tmp_seg0 = Vtop__ConstPool__TABLE_h1f93ebb4_0
         [__Vtableidx2];
-    vlSelf->seg1 = Vtop__ConstPool__TABLE_h1f93ebb4_0
+    vlSelf->top__DOT__tmp_seg1 = Vtop__ConstPool__TABLE_h1f93ebb4_0
         [__Vtableidx3];
     vlSelf->top__DOT__my_ps2_to_ascii__DOT__tmp = Vtop__ConstPool__TABLE_h181586bb_0
         [__Vtableidx1];
     __Vtableidx4 = (0xfU & (IData)(vlSelf->top__DOT__my_ps2_to_ascii__DOT__tmp));
-    vlSelf->seg2 = Vtop__ConstPool__TABLE_h1f93ebb4_0
+    vlSelf->top__DOT__tmp_seg2 = Vtop__ConstPool__TABLE_h1f93ebb4_0
         [__Vtableidx4];
     __Vtableidx5 = (0xfU & ((IData)(vlSelf->top__DOT__my_ps2_to_ascii__DOT__tmp) 
                             >> 4U));
-    vlSelf->seg3 = Vtop__ConstPool__TABLE_h1f93ebb4_0
+    vlSelf->top__DOT__tmp_seg3 = Vtop__ConstPool__TABLE_h1f93ebb4_0
         [__Vtableidx5];
 }
 
@@ -238,10 +249,11 @@ void Vtop___024root___eval_nba(Vtop___024root* vlSelf) {
     }
     if (vlSelf->__VnbaTriggered.at(0U)) {
         Vtop___024root___nba_sequent__TOP__1(vlSelf);
+        vlSelf->__Vm_traceActivity[2U] = 1U;
     }
     if ((vlSelf->__VnbaTriggered.at(0U) | vlSelf->__VnbaTriggered.at(1U))) {
         Vtop___024root___nba_comb__TOP__0(vlSelf);
-        vlSelf->__Vm_traceActivity[2U] = 1U;
+        vlSelf->__Vm_traceActivity[3U] = 1U;
     }
 }
 
