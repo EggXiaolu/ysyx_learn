@@ -1,0 +1,5 @@
+C语言：https://www.cntofu.com/book/25/index.html
+Linux技巧：https://missing-semester-cn.github.io/
+南大PA实验：https://ysyx.oscc.cc/docs/ics-pa/
+verilog：https://hdlbits.01xz.net/wiki/Main_Page
+数电实验：https://nju-projectn.github.io/dlco-lecture-note/index.html
